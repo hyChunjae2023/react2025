@@ -75,7 +75,6 @@ class EventPractice extends Component {
     }
     /** onKeyPress 이벤트는 deprecated 되었으므로 onKeyUp/onKeyDown 으로 대체 */
     handleKeyPress = (e) => {
-        console.log(e.type, e.target.name);
         if (e.key === "Enter") this.handleInputEvent(e);
     }
 

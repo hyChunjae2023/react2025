@@ -3,6 +3,7 @@ import MyComponent from './Components/MyComponent';
 import Counter from './Components/Counter';
 import Say from './Components/Say';
 import EventPractice from './Components/EventPractice';
+import EventPracticeFunc from './Components/EventPracticsFunc';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Counter />
       <Say />
       <EventPractice />
+      <EventPracticeFunc />
     </div>
   )
 }
