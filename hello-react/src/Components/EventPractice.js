@@ -20,6 +20,9 @@ class EventPractice extends Component {
         /** Property Initializer Syntax 사용 메서드 작성 */
         this.handleChangeTel = this.handleChangeTel.bind(this);
         this.handleClearTel = this.handleClearTel.bind(this);
+        /** 동일한 처리를 하는 DOM 요소의 이벤트 처리 */
+        this.handleInputEvent = this.handleInputEvent.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     /** 함수 형태의 객체를 전달 */
@@ -47,11 +50,42 @@ class EventPractice extends Component {
             tel: ""
         });
     }
+    
+    /** 동일한 처리를 하는 DOM 요소의 이벤트 처리 */
+    handleInputEvent(e) {
+        const value = (e.type === "change") ? e.target.value || "" : ""; 
+        let targetName;
+        switch (e.target.name) {
+            case "btnUserName":
+            case "userName": 
+                targetName = "userName";
+                break;
+            case "btnTel":
+            case "tel": 
+                targetName = "tel";
+                break;
+            default: break;
+        }
+        /** 객체 안에서 key 룰 [] 로 감싸면 그 안에 넣은 레퍼런스가 가리키는 실제값이 키로 사용됨 */
+        if (targetName) {
+            this.setState({
+                [targetName]: value
+            });
+        }
+    }
+    /** onKeyPress 이벤트는 deprecated 되었으므로 onKeyUp/onKeyDown 으로 대체 */
+    handleKeyPress = (e) => {
+        console.log(e.type, e.target.name);
+        if (e.key === "Enter") this.handleInputEvent(e);
+    }
 
     render() {
         return (
             <div>
                 <h1>이벤트 연습</h1>
+                <h4>내용: { this.state.message }</h4>
+                <h4>작성자명: { this.state.userName }</h4>
+                <h4>연락처: { this.state.tel }</h4>
                 {/** 이벤트 렌더링시에 함수를 만들어 전달 */}
                 <input 
                     type="text"
@@ -73,24 +107,40 @@ class EventPractice extends Component {
                         })
                     }
                 }>확인</button>
+                <hr />
                 {/** 함수 형태의 객체를 전달 */}
                 <input 
                     type="text" 
                     name="userName"
                     placeholder="이름을 입력하세요..."
                     value={this.state.userName}
-                    onChange={this.handleChangeUserName}
+                    //onChange={this.handleChangeUserName}
+                    onChange={this.handleInputEvent}
+                    //[deprecated] onKeyPress={this.handleKeyPress}
+                    onKeyUp={this.handleKeyPress}
                 />
-                <button onClick={this.handleClearUserName}>확인</button>
+                <button 
+                    //onClick={this.handleClearUserName}
+                    name="btnUserName"
+                    onClick={this.handleInputEvent}
+                >확인</button>
+                <hr />
                 {/** Property Initializer Syntax 사용 메서드 작성 */}
                 <input 
                     type="text"
                     name="tel"
                     placeholder="연락처를 입력하세요..."
                     value={this.state.tel}
-                    onChange={this.handleChangeTel}
+                    //onChange={this.handleChangeTel}
+                    onChange={this.handleInputEvent}
+                    //[deprecated] onKeyPress={this.handleKeyPress}
+                    onKeyUp={this.handleKeyPress}
                 />
-                <button onClick={this.handleClearTel}>확인</button>
+                <button 
+                    //onClick={this.handleClearTel}
+                    name="btnTel"
+                    onClick={this.handleInputEvent}
+                >확인</button>
             </div>
         )
     }
