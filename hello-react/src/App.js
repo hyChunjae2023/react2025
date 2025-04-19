@@ -1,18 +1,30 @@
 import './App.css';
 import { Component, createRef } from 'react';
-import ScrollBox from './Components/ScrollBox';
-import IterationSample from './Components/IterationSapmple';
+import LifeCycleSample from './Components/LifeCycleSample';
+import ErrorBoundary from './Components/ErrorBoundary';
 
+function getRandomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;//xffffff = 16777215
+}
 class App extends Component {
   scrollBox = createRef();
+  state = {
+    color: '#000000'
+  }
+  
+  handleClick = () => {
+    this.setState({
+      color: getRandomColor()
+    });
+  }
+
   render() {
     return (
       <div>
-        {/** 컴포넌트에 ref 를 설정하여 컴포넌트 내부의 DOM 요소 직접 제어 */}
-        <ScrollBox ref={(ref) => this.scrollBox = ref} />
-        <button onClick={() => this.scrollBox.scrollToBottom()}>맨 아래로</button>
-        <button onClick={() => this.scrollBox.scrollToTop()}>맨 위로</button>
-        <IterationSample />
+        <ErrorBoundary>
+          <LifeCycleSample color={this.state.color} />
+        </ErrorBoundary>
+        <button onClick={this.handleClick}>랜덤 색상</button>
       </div>
     )
   }  
