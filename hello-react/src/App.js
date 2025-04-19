@@ -1,6 +1,7 @@
 import './App.css';
 import { Component, createRef } from 'react';
 import ScrollBox from './Components/ScrollBox';
+import IterationSample from './Components/IterationSapmple';
 
 class App extends Component {
   scrollBox = createRef();
@@ -11,6 +12,7 @@ class App extends Component {
         <ScrollBox ref={(ref) => this.scrollBox = ref} />
         <button onClick={() => this.scrollBox.scrollToBottom()}>맨 아래로</button>
         <button onClick={() => this.scrollBox.scrollToTop()}>맨 위로</button>
+        <IterationSample />
       </div>
     )
   }  
