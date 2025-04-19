@@ -1,33 +1,23 @@
 import './App.css';
-import { Component, createRef } from 'react';
-import LifeCycleSample from './Components/LifeCycleSample';
+import { useState } from 'react';
 import ErrorBoundary from './Components/ErrorBoundary';
+import Info from './Components/Info';
 
-function getRandomColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;//xffffff = 16777215
-}
-class App extends Component {
-  scrollBox = createRef();
-  state = {
-    color: '#000000'
-  }
-  
-  handleClick = () => {
-    this.setState({
-      color: getRandomColor()
-    });
-  }
+const App = () => {
+  const [ visible, setVisible ] = useState(false);
 
-  render() {
-    return (
-      <div>
-        <ErrorBoundary>
-          <LifeCycleSample color={this.state.color} />
-        </ErrorBoundary>
-        <button onClick={this.handleClick}>랜덤 색상</button>
-      </div>
-    )
-  }  
+  return (
+    <div>
+      <button onClick={() => {
+        setVisible(!visible)
+      }}>
+        {visible ? '숨기기' : '보이기' }
+      </button>
+      <ErrorBoundary>
+        {visible && <Info />}
+      </ErrorBoundary>
+    </div>
+  )
 }
 
 /*
