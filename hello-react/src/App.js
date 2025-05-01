@@ -1,7 +1,8 @@
 import './App.css';
 import { useState } from 'react';
 import ErrorBoundary from './Components/ErrorBoundary';
-import Info from './Components/Info';
+import InfoReducer from './Components/InfoReducer';
+import CounterReducer from './Components/CounterReducer';
 
 const App = () => {
   const [ visible, setVisible ] = useState(false);
@@ -14,8 +15,9 @@ const App = () => {
         {visible ? '숨기기' : '보이기' }
       </button>
       <ErrorBoundary>
-        {visible && <Info />}
+        {visible && <InfoReducer />}
       </ErrorBoundary>
+      <CounterReducer />
     </div>
   )
 }
