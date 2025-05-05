@@ -1,13 +1,13 @@
 import './App.css';
 import ErrorBoundary from './Components/ErrorBoundary';
-import Average from './Components/Average';
+import InfoUseInputsCustomHook from './Components/InfoUseInputsCustomHook';
 
 const App = () => {
 
   return (
     <div>
       <ErrorBoundary>
-        <Average />
+        <InfoUseInputsCustomHook />
       </ErrorBoundary>
     </div>
   )
