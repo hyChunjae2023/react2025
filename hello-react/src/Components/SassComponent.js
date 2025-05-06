@@ -1,4 +1,4 @@
-import '../styles/SassComponent.sass';
+import '../styles/SassComponent.scss';
 
 const SassComponent = () => {
     return (

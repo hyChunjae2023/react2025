@@ -516,8 +516,19 @@ module.exports = function (webpackEnv) {
                   modules: {
                     mode: 'icss',
                   },
+                }).concat({
+                  //sass-loader 커스터마이징
+                  loader: require.resolve("sass-loader"),
+                  options: {
+                    sassOptions: {
+                      //styles 디렉토리 기준 절대경로 사용
+                      includePaths: [paths.appSrc + "/styles"]
+                    },
+                    // 모든 scss 파일에서 util.scss 자동 로드
+                    additionalData: "@import 'utils';",
+                  },
                 },
-                'sass-loader'
+                // 'sass-loader' 삭제하고 concat 통해 커스터마이징
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
