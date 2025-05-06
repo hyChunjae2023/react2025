@@ -1,12 +1,12 @@
 import logo from './logo.svg'
 import './App.css';
-import SassComponent from './Components/SassComponent';
+import CssModule from './Components/CssModule';
 
 const App = () => {
 
   return (
     <div>
-      <SassComponent />
+      <CssModule />
     </div>
   )
 }

@@ -1,0 +1,19 @@
+/** '모듈파일명_클래스이름__해시코드'로 구성된 고유이름 자동 생성: CssModule_wrapper__1SbdQ */
+.wrapper {
+    background: black;
+    padding: 1rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.inverted {
+    color: black;
+    background: white;
+    border: 1px solid black;
+}
+
+/** 글로벌 CSS */
+:global .something {
+    font-weight: 800;
+    color: aqua;
+}
