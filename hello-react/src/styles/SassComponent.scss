@@ -1,3 +1,6 @@
+//물결(~)문자로 라이브러리 로드
+@import '~include-media/dist/include-media';
+@import '~open-color/open-color';
 //@import '../styles/utils.scss';
 // 변수 선언과 믹스인을 별도 파일로 분리하여 공통 사용 가능 : utils.scss
 // 변수 선언
@@ -17,6 +20,11 @@
 
 .SassComponent {
     display: flex;
+    //물결(~)문자로 로드한 라이브러리 사용
+    background: $oc-gray-2;
+    @include media('<768px') {
+        background: $oc-gray-9;
+    }
     .box {
         background: red;
         cursor: pointer;
