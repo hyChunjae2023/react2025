@@ -1,12 +1,13 @@
 import logo from './logo.svg'
 import './App.css';
-import CssModule from './Components/CssModule';
+import ClassnamesSample from './Components/ClassnamesSample';
 
 const App = () => {
 
   return (
     <div>
-      <CssModule />
+      <ClassnamesSample highlighted={true} theme='theme' hello='Hello' />
+      <ClassnamesSample highlighted={false} theme='theme' hello='Hi' />
     </div>
   )
 }

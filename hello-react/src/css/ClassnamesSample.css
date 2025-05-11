@@ -1,0 +1,31 @@
+.highlighted {
+    color:aqua;
+    background-color: black;
+}
+
+.theme {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.choco {
+    color:chocolate;
+}
+
+.bold900 {
+    font-weight: 900;
+}
+
+.italicStyle {
+    font-style: italic;
+}
+
+.border2 {
+    border: 2px solid yellowgreen;
+    padding: 10px;
+}
+
+.borderRadius20 {
+    border-radius: 20px;
+    margin: 15px 0px;
+}
