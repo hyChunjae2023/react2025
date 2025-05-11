@@ -1,0 +1,29 @@
+/** '모듈파일명_클래스이름__해시코드'로 구성된 고유이름 자동 생성: CssModule_wrapper__1SbdQ */
+.wrapper {
+    background: black;
+    padding: 1rem;
+    color: white;
+    font-size: 2rem;
+    &.inverted {
+        // inverted 가 wrapperd 와 함께 사용되었을 때만 적용
+        color: black;
+        background: white;
+        border: 1px solid black;
+    }
+}
+
+
+/** 글로벌 CSS */
+:global {
+    // :global {} 로 감싸기
+    .something {
+        font-weight: 800;
+        color: aqua;
+    }
+}
+
+
+/** 일반 CSS 파일에서 CSS Module 사용하기 : CSS Module 이 아닌 일반 .css/.scss 파일에서 :local 을 사용하여 CSS Module 사용 가능
+ *   1) :local .wrapper { ... 스타일 ... }
+ *   2) .wrapper { ... 스타일 ... }
+ */

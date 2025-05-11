@@ -1,6 +1,7 @@
 import logo from './logo.svg'
 import './App.css';
 import ClassnamesSample from './Components/ClassnamesSample';
+import ClassnamesModuleSample from './Components/ClassnamesModuleSample';
 
 const App = () => {
 
@@ -8,6 +9,8 @@ const App = () => {
     <div>
       <ClassnamesSample highlighted={true} theme='theme' hello='Hello' />
       <ClassnamesSample highlighted={false} theme='theme' hello='Hi' />
+      <hr />
+      <ClassnamesModuleSample />
     </div>
   )
 }
