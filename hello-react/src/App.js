@@ -1,20 +1,17 @@
 import logo from './logo.svg'
 import './App.css';
-import ClassnamesSample from './Components/ClassnamesSample';
-import ClassnamesModuleSample from './Components/ClassnamesModuleSample';
+import { Component } from 'react';
+import StyledComponentsSample from './Components/StyledComponentsSample';
 
-const App = () => {
-
-  return (
-    <div>
-      <ClassnamesSample highlighted={true} theme='theme' hello='Hello' />
-      <ClassnamesSample highlighted={false} theme='theme' hello='Hi' />
-      <hr />
-      <ClassnamesModuleSample />
-    </div>
-  )
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <StyledComponentsSample />
+      </div>
+    )
+  }
 }
-
 
 /*
 const App = () => {
